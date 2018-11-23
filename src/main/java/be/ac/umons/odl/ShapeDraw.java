@@ -33,12 +33,16 @@ public class ShapeDraw {
 				Point end = new Point(e.getX(), e.getY());
 				if (rectBtn.isSelected()) {
 					((DrawingPanel) drawingArea).addDrawable(new Rectangle(start, end));
+					messageZone.setText(messageZone.getText() + "\nRectangle\n");
 				} else if (squareBtn.isSelected()) {
 					((DrawingPanel) drawingArea).addDrawable(new Square(start, Math.min(end.getX() - start.getX(), end.getY() - start.getY())));
+					messageZone.setText(messageZone.getText() + "\nSquare\n");
 				} else if (ellipsisBtn.isSelected()){
 					((DrawingPanel) drawingArea).addDrawable(new Ellipse(start, Math.abs(end.getX() - start.getX()), Math.abs(end.getY() - start.getY())));
+					messageZone.setText(messageZone.getText() + "\nEllipse\n");
 				} else if (circleBtn.isSelected()) {
 					((DrawingPanel) drawingArea).addDrawable(new Circle(start, Math.abs(end.getX() - start.getX())));
+					messageZone.setText(messageZone.getText() + "\nCircle\n");
 				}
 				drawingArea.repaint();
 			}
