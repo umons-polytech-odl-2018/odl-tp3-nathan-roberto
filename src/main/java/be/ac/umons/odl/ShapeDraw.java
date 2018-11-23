@@ -32,17 +32,21 @@ public class ShapeDraw {
 				messageZone.setText(messageZone.getText() + "\nMouse released: (" + e.getX() + ", " + e.getY() + ")");
 				Point end = new Point(e.getX(), e.getY());
 				if (rectBtn.isSelected()) {
-					((DrawingPanel) drawingArea).addDrawable(new Rectangle(start, end));
-					messageZone.setText(messageZone.getText() + "\nRectangle\n");
+					Rectangle rectangle = new Rectangle(start, end);
+					((DrawingPanel) drawingArea).addDrawable(rectangle);
+					messageZone.setText(messageZone.getText() + "\nRectangle\nPerim :" + rectangle.perimeter() +"\nArea :"+ rectangle.area());
 				} else if (squareBtn.isSelected()) {
-					((DrawingPanel) drawingArea).addDrawable(new Square(start, Math.min(end.getX() - start.getX(), end.getY() - start.getY())));
-					messageZone.setText(messageZone.getText() + "\nSquare\n");
+					Square square = new Square(start, Math.min(end.getX() - start.getX(), end.getY() - start.getY()));
+					((DrawingPanel) drawingArea).addDrawable(square);
+					messageZone.setText(messageZone.getText() + "\nSquare\nPerim :" + square.perimeter() +"\nArea :"+ square.area());
 				} else if (ellipsisBtn.isSelected()){
-					((DrawingPanel) drawingArea).addDrawable(new Ellipse(start, Math.abs(end.getX() - start.getX()), Math.abs(end.getY() - start.getY())));
-					messageZone.setText(messageZone.getText() + "\nEllipse\n");
+					Ellipse ellipse = new Ellipse(start, Math.abs(end.getX() - start.getX()), Math.abs(end.getY() - start.getY()));
+					((DrawingPanel) drawingArea).addDrawable(ellipse);
+					messageZone.setText(messageZone.getText() + "\nEllipse\nPerim :" + ellipse.perimeter() +"\nArea :"+ ellipse.area());
 				} else if (circleBtn.isSelected()) {
-					((DrawingPanel) drawingArea).addDrawable(new Circle(start, Math.abs(end.getX() - start.getX())));
-					messageZone.setText(messageZone.getText() + "\nCircle\n");
+					Circle circle = new Circle(start, Math.abs(end.getX() - start.getX()));
+					((DrawingPanel) drawingArea).addDrawable(circle);
+					messageZone.setText(messageZone.getText() + "\nCircle\nPerim :" + circle.perimeter() +"\nArea :"+ circle.area());
 				}
 				drawingArea.repaint();
 			}
